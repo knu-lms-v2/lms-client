@@ -1,4 +1,3 @@
-import React from "react";
 import Sidetab from "./components/layout/Sidetab";
 import "./App.css";
 
