@@ -4,3 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+
+.app-layout {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1; /* 남은 공간을 모두 차지 */
+  padding: 20px;
+}
