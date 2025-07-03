@@ -35,7 +35,8 @@ const LMSWebView: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
-        setMessage(`환영합니다, ${data.userName}님!`);
+        setUserName(data.userName);
+        setMessage(`환영합니다, ${userName}님!`);
         setToken("");
 
         if (data.userName) {
