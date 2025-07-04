@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import styles from "./Loginpage.module.css";
 
-const LMSWebView: React.FC = () => {
+interface Props {
+  onLoginSuccess: (userName: string) => void;
+}
+
+const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
   const [token, setToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
   const lmsUrl = "https://knulms.kongju.ac.kr/profile/settings";
-  const [userName, setUserName] = useState("");
 
   const openLMSInNewTab = () => {
     window.open(lmsUrl, "_blank");
@@ -23,7 +26,7 @@ const LMSWebView: React.FC = () => {
 
     try {
       const response = await fetch(
-        "http://172.20.10.9:8000/api/validate-token/",
+        "http://10.2.14.40:8000/api/validate-token/",
         {
           method: "POST",
           headers: {
@@ -35,13 +38,11 @@ const LMSWebView: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
-        setUserName(data.userName);
-        setMessage(`환영합니다, ${userName}님!`);
+        setMessage(`환영합니다, ${data.userName}님!`);
         setToken("");
 
-        if (data.userName) {
-          setUserName(data.userName);
-        }
+        // 부모 컴포넌트에 로그인 성공 알림
+        onLoginSuccess(data.userName);
       } else {
         const errorData = await response.json();
         setMessage(
@@ -117,4 +118,4 @@ const LMSWebView: React.FC = () => {
   );
 };
 
-export default LMSWebView;
+export default LoginPage;
