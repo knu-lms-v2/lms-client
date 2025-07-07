@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Loginpage.module.css";
+import Logout from "./Logout";
 
 interface Props {
   onLoginSuccess: (userName: string) => void;
@@ -114,6 +115,7 @@ const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
           </div>
         )}
       </div>
+      <Logout />
     </div>
   );
 };
