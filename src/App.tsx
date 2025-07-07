@@ -7,6 +7,11 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserName("");
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -29,7 +34,7 @@ function App() {
           path="/"
           element={
             isLoggedIn ? (
-              <MainPage userName={userName} />
+              <MainPage userName={userName} onLogout={handleLogout} />
             ) : (
               <Navigate to="/login" replace />
             )

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./Loginpage.module.css";
-import Logout from "./Logout";
 import { API_URL } from "../../globals";
 
 interface Props {
@@ -115,7 +114,6 @@ const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
           </div>
         )}
       </div>
-      <Logout />
     </div>
   );
 };
