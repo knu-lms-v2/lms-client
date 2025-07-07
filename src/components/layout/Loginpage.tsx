@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Loginpage.module.css";
 import Logout from "./Logout";
+import { API_URL } from "../../globals";
 
 interface Props {
   onLoginSuccess: (userName: string) => void;
@@ -26,21 +27,20 @@ const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
     setMessage("");
 
     try {
-      const response = await fetch(
-        "http://10.2.14.40:8000/api/validate-token/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token: token.trim() }),
-        }
-      );
+      const response = await fetch(`${API_URL}/api/validate-token/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: token.trim() }),
+      });
 
       if (response.ok) {
         const data = await response.json();
         setMessage(`환영합니다, ${data.userName}님!`);
         setToken("");
+        localStorage.setItem("token", token.trim());
+        localStorage.setItem("userName", data.userName);
 
         // 부모 컴포넌트에 로그인 성공 알림
         onLoginSuccess(data.userName);
