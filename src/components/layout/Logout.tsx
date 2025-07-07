@@ -5,8 +5,6 @@ const Logout = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userName");
     const response = await fetch(`${API_URL}/api/logout/`, {
       method: "POST",
       headers: {
@@ -14,6 +12,8 @@ const Logout = () => {
       },
       body: JSON.stringify({ token: localStorage.getItem("token") }),
     });
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
 
     if (response.ok) {
       localStorage.removeItem("token");
