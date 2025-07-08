@@ -11,9 +11,17 @@ const Logout: React.FC<Props> = ({ onLogout }) => {
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem("token");
+      // 개발용 로그아웃 로직
+      if (token == "test") {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userName");
+        onLogout();
+        navigate("/login");
+        return;
+      }
 
       if (token) {
-        const response = await fetch(`${API_URL}/api/logout/`, {
+        const response = await fetch(`${API_URL}/api/users/logout/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

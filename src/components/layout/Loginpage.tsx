@@ -21,16 +21,20 @@ const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
       setMessage("토큰을 입력해주세요.");
       return;
     }
+    // 개발용 로그인 로직
     if (token.trim() == "test") {
       setMessage(`환영합니다, 개발자님!`);
       setToken("");
+      localStorage.setItem("token", token.trim());
+      localStorage.setItem("userName", "개발자");
       onLoginSuccess("개발자");
+      return;
     }
     setIsLoading(true);
     setMessage("");
 
     try {
-      const response = await fetch(`${API_URL}/api/validate-token/`, {
+      const response = await fetch(`${API_URL}/api/users/validate-token/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
