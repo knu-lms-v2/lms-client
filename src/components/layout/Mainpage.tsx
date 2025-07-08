@@ -1,5 +1,5 @@
 import Logout from "./Logout";
-import UpcomingList from "../common/UpcomingLists";
+import UpcomingList from "../common/UpcomingList";
 
 interface Props {
   userName: string;
