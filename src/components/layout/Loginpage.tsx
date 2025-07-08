@@ -44,13 +44,13 @@ const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
 
       if (response.ok) {
         const data = await response.json();
-        setMessage(`환영합니다, ${data.userName}님!`);
+        setMessage(`환영합니다, ${data.user_name}님!`);
         setToken("");
         localStorage.setItem("token", token.trim());
-        localStorage.setItem("userName", data.userName);
+        localStorage.setItem("userName", data.user_name);
 
         // 부모 컴포넌트에 로그인 성공 알림
-        onLoginSuccess(data.userName);
+        onLoginSuccess(data.user_name);
       } else {
         const errorData = await response.json();
         setMessage(
