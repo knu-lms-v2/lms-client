@@ -11,6 +11,7 @@ const Logout: React.FC<Props> = ({ onLogout }) => {
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem("token");
+      const userName = localStorage.getItem("userName");
       // 개발용 로그아웃 로직
       if (token == "test") {
         localStorage.removeItem("token");
@@ -21,13 +22,18 @@ const Logout: React.FC<Props> = ({ onLogout }) => {
       }
 
       if (token) {
-        const response = await fetch(`${API_URL}/api/users/logout/`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token: token }),
-        });
+        const response = await fetch(
+          //`${API_URL}/api/upcoming-list/upcoming-events/`,
+          `${API_URL}/api/users/logout/`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            // body: JSON.stringify({ token: token }),
+            body: JSON.stringify({ user_name: userName }),
+          }
+        );
 
         if (response.ok) {
           console.log("백엔드 로그아웃 성공");
@@ -36,6 +42,7 @@ const Logout: React.FC<Props> = ({ onLogout }) => {
           onLogout();
           navigate("/login");
         } else {
+          console.log(response);
           console.log("백엔드 로그아웃 실패:", response.status);
         }
       }
