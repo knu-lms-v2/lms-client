@@ -27,6 +27,7 @@
     // 배경색
     --background-light: #ffffff;
     --background-gray: #f7f7f7;
+
     --background-blue: #e8f3ff;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -53,11 +54,4 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
   margin-top: 60px;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
 }
