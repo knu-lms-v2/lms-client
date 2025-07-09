@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoginPage from "./components/layout/Loginpage";
 import MainPage from "./components/layout/Mainpage";
+import Header from "./components/common/Header";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,7 +54,10 @@ function App() {
           path="/"
           element={
             isLoggedIn ? (
-              <MainPage userName={userName} onLogout={handleLogout} />
+              <>
+                <Header userName={userName} onLogout={handleLogout} />
+                <MainPage />
+              </>
             ) : (
               <Navigate to="/login" replace />
             )
