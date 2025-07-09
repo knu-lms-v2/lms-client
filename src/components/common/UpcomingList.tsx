@@ -45,9 +45,10 @@ const UpcomingList = () => {
     );
     if (response.ok) {
       const data = await response.json();
-      setUpcomingItems(data);
+      setUpcomingItems(data.lecture_data);
+      console.log(response.json());
     } else {
-      console.log(response);
+      console.log("백엔드 에러");
     }
   };
 
@@ -60,7 +61,7 @@ const UpcomingList = () => {
       <h2 className={styles.title}>Upcoming List</h2>
       {upcomingItems.map((item, index) => (
         <div key={index} className={styles.items}>
-          [{item.course_name}] {item.week}주차 {item.type} D-
+          [{item.course_name}] {item.week} {item.type} D-
           {item.remaining_days}
         </div>
       ))}
