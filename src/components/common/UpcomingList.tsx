@@ -60,14 +60,14 @@ const UpcomingList = () => {
       <h2 className={styles.title}>Upcoming List</h2>
       {upcomingItems.map((item, index) => (
         <div key={index} className={styles.items}>
-          [{item.course_name}] {item.week}주차 {item.title} D-
+          [{item.course_name}] {item.week}주차 {item.type} D-
           {item.remaining_days}
         </div>
       ))}
       {/* <div className="list">
         {dummyItems.map((item, index) => (
           <div key={index} className="item">
-            [{item.course_name}] {item.week}주차 {item.title} D-{item.remaining_days}
+            [{item.course_name}] {item.week}주차 {item.type} D-{item.remaining_days}
           </div>
         ))}
       </div> */}
