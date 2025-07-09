@@ -22,18 +22,13 @@ const Logout: React.FC<Props> = ({ onLogout }) => {
       }
 
       if (token) {
-        const response = await fetch(
-          //`${API_URL}/api/upcoming-list/upcoming-events/`,
-          `${API_URL}/api/users/logout/`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            // body: JSON.stringify({ token: token }),
-            body: JSON.stringify({ user_name: userName }),
-          }
-        );
+        const response = await fetch(`${API_URL}/api/users/logout/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_name: userName }),
+        });
 
         if (response.ok) {
           console.log("백엔드 로그아웃 성공");
