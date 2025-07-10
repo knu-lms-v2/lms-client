@@ -1,42 +1,33 @@
 :root {
-    // 메인 컬러
-    --color-primary-blue: #0064ff;
-    --color-primary-green: #00c471;
-  
-    // 보조 컬러
-    --color-secondary: #e8f3ff;
-    --color-accent: #66a3ff;
-    --color-navy: #00327e;
-    --color-light-blue: #66a3ff;
-  
-    // Grayscale
-    --color-black: #000000;
-    --color-gray-900: #121212;
-    --color-gray-800: #333333;
-    --color-gray-700: #4f4f4f;
-    --color-gray-600: #828282;
-    --color-gray-500: #bdbdbd;
-    --color-gray-400: #e0e0e0;
-    --color-gray-300: #f2f2f2;
-    --color-white: #ffffff;
-  
-    // 하이라이트 컬러
-    --color-warning: #ffab00;
-    --color-error: #ff3b30;
-    --color-info: #0064ff;
-    // 배경색
-    --background-light: #ffffff;
-    --background-gray: #f7f7f7;
+  --color-primary: #82b1ff;
+  --color-on-primary: #001f54;
+  --color-primary-container: #003d9f;
+  --color-on-primary-container: #d6e3ff;
 
-    --background-blue: #e8f3ff;
+  --color-secondary: #80cbc4;
+  --color-on-secondary: #00332d;
+  --color-secondary-container: #004d40;
+  --color-on-secondary-container: #b2dfdb;
+
+  --color-background: #121212;
+  --color-on-background: #e0e0e0;
+
+  --color-surface: #121212;
+  --color-on-surface: #e0e0e0;
+  --color-surface-variant: #2c2c2c;
+  --color-on-surface-variant: #b0b0b0;
+
+  --color-error: #cf6679;
+  --color-on-error: #000000;
+  --color-outline: #8a8a8a;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--background-gray)
+  color: var(--color-on-background);
+  background-color: var(--color-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

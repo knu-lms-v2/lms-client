@@ -1,7 +1,7 @@
 .container {
   width: 30rem;
   height: 30rem;
-  background-color: var(--color-gray-800);
+  background-color: var(--color-surface-variant);
   padding: 20px;
   margin: 1rem;
   border-radius: 10px;

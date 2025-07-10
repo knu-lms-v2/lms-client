@@ -73,6 +73,9 @@ const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.title}>KNU-LMS-v2</div>
+      </div>
       <div className={styles.card}>
         <h1 className={styles.title}>KNU-lms-v2</h1>
 
