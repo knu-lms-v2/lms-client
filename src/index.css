@@ -1,24 +1,42 @@
 :root {
+  /* Primary color: 앱의 주요 강조 색 (버튼, 토글 등) */
   --color-primary: #82b1ff;
-  --color-on-primary: #001f54;
-  --color-primary-container: #003d9f;
-  --color-on-primary-container: #d6e3ff;
+  --color-on-primary: #001f54; /* primary 위의 텍스트/아이콘 */
+  --color-primary-container: #003d9f; /* primary 변형 - 큰 버튼, 카드 배경 */
+  --color-on-primary-container: #d6e3ff; /* primaryContainer 위의 글자 */
 
+  /* Secondary color: 보조 강조 색 (필터, 태그 등) */
   --color-secondary: #80cbc4;
   --color-on-secondary: #00332d;
   --color-secondary-container: #004d40;
   --color-on-secondary-container: #b2dfdb;
 
+  /* App Background: 앱 전체 배경 (가장 뒤) */
   --color-background: #121212;
-  --color-on-background: #e0e0e0;
+  --color-on-background: #e0e0e0; /* 배경 위의 텍스트 */
 
+  /* Surface: 가장 기본적인 표면 (앱의 바닥면) */
   --color-surface: #121212;
-  --color-on-surface: #e0e0e0;
+  --color-on-surface: #e0e0e0; /* surface 위의 텍스트 */
+
+  /* Surface Variant: 표면 변형 (카드 테두리, 경계선) */
   --color-surface-variant: #2c2c2c;
   --color-on-surface-variant: #b0b0b0;
 
+  /* Surface Container 단계:
+     elevation(높이)에 따라 점점 밝게 → 카드나 시트가 배경과 구분되도록
+  */
+  --color-surface-container-lowest: #131314; /* 거의 배경색 - 리스트 맨 아래 */
+  --color-surface-container-low: #1a1b1f; /* 살짝 떠 있는 느낌 */
+  --color-surface-container: #202127; /* 일반 카드, 시트 */
+  --color-surface-container-high: #2b2c31; /* 더 강조되는 카드, 팝업 시트 */
+  --color-surface-container-highest: #35363b; /* 다이얼로그, 최상위 시트 */
+
+  /* Error colors: 오류 메시지, 경고 배경 */
   --color-error: #cf6679;
   --color-on-error: #000000;
+
+  /* Outline: 테두리, 구분선 색상 */
   --color-outline: #8a8a8a;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -39,6 +57,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
 }
 
 body {

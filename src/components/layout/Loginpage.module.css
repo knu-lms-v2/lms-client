@@ -1,29 +1,69 @@
 .container {
   width: 100%;
-  height: 100vh;
+  height: calc(100% - 5rem); /* 헤더 높이 제외 */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-gray);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
 }
 
-.card {
-  text-align: center;
-  padding: 40px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-container) 0%,
+    var(--color-secondary-container) 100%
+  ) !important;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  color: #333;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-on-primary-container);
+}
+
+.card {
+  width: 90%;
+  max-width: 45rem;
+  height: auto;
+  min-height: 400px;
+  text-align: center;
+  background-color: var(--color-surface-container);
+  color: var(--color-on-surface);
+  border: 0.7px solid var(--color-outline);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.7px solid var(--color-outline);
+}
+
+.cardTitle {
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .description {
-  color: #666;
   margin-bottom: 30px;
   line-height: 1.6;
 }
@@ -37,7 +77,7 @@
 
 .button {
   padding: 12px 24px;
-  background-color: #007bff;
+  background-color: #0056b3;
   color: white;
   border: none;
   border-radius: 6px;
@@ -48,7 +88,7 @@
 }
 
 .button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: var(--color-primary-container);
 }
 
 .button:disabled {
@@ -57,27 +97,30 @@
   opacity: 0.6;
 }
 
+.inputAndLoginButtonContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .loginButton {
   background-color: #28a745;
   min-width: 120px;
+  border: 0.7px solid var(--color-outline);
 }
 
 .loginButton:hover:not(:disabled) {
   background-color: #218838;
 }
 
-.inputContainer {
-  margin-bottom: 30px;
-  width: 100%;
-  text-align: center;
-}
-
 .input {
-  width: 100%;
-  margin-top: 20px;
+  width: 70%;
   padding: 12px 16px;
   font-size: 16px;
-  border: 1px solid #ddd;
+  border: 0.7px solid var(--color-outline);
   border-radius: 6px;
   box-sizing: border-box;
   transition: border-color 0.2s ease;

@@ -77,35 +77,32 @@ const LoginPage: React.FC<Props> = ({ onLoginSuccess }) => {
         <div className={styles.title}>KNU-LMS-v2</div>
       </div>
       <div className={styles.card}>
-        <h1 className={styles.title}>KNU-lms-v2</h1>
+        <div className={styles.cardHeader}>
+          <h1 className={styles.cardTitle}>로그인</h1>
 
-        <p className={styles.description}>
-          LMS-v2에 로그인하기 위한 토큰 발행 페이지로 이동합니다.
-          <br /> 위 페이지 로그인 후 "+ 새 액세스 토큰"을 눌러 토큰을 발급받은
-          후
-          <br />
-          하단 토큰 입력란에 입력하세요.
-        </p>
+          <p className={styles.description}>
+            LMS-v2에 로그인하기 위한 토큰 발행 페이지로 이동합니다.
+            <br />
+            "+ 새 액세스 토큰"을 눌러 토큰을 발급받은 후 해당 토큰으로
+            로그인하세요.
+          </p>
 
-        <div className={styles.buttonContainer}>
-          <button onClick={openLMSInNewTab} className={styles.button}>
-            토큰 발행 페이지로 이동
-          </button>
+          <div className={styles.buttonContainer}>
+            <button onClick={openLMSInNewTab} className={styles.button}>
+              토큰 발행 페이지로 이동
+            </button>
+          </div>
         </div>
-
-        <div className={styles.inputContainer}>
+        <div className={styles.inputAndLoginButtonContainer}>
           <input
+            className={styles.input}
             type="text"
             value={token}
             onChange={(e) => setToken(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="토큰을 입력하세요"
-            className={styles.input}
             disabled={isLoading}
           />
-        </div>
-
-        <div className={styles.buttonContainer}>
           <button
             onClick={saveToken}
             className={`${styles.button} ${styles.loginButton}`}
