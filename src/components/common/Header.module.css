@@ -20,7 +20,8 @@
 .title {
   font-size: 18px;
   font-weight: bold;
-  color: #white;
+  color: var(--color-on-primary-container);
+  text-decoration: none;
 }
 
 .userSection {
