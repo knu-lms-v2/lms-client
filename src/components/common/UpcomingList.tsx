@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { API_URL } from "../../globals";
 import styles from "./UpcomingList.module.css";
 
+type UpcomingListProps = {
+  className?: string;
+};
+
 interface UpcomingItem {
   type: string;
   course_name: string;
@@ -9,7 +13,7 @@ interface UpcomingItem {
   remaining_days: string;
 }
 
-const UpcomingList = () => {
+const UpcomingList = ({ className }: UpcomingListProps) => {
   // const dummyItems = [
   //   {
   //     type: "assignment",
@@ -57,7 +61,7 @@ const UpcomingList = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className || ""}`}>
       <h2 className={styles.title}>Upcoming List</h2>
       {upcomingItems.map((item, index) => (
         <div key={index} className={styles.items}>

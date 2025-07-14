@@ -1,4 +1,5 @@
 import UpcomingList from "../common/UpcomingList";
+import styles from "./MainPage.module.css";
 
 interface Props {
   userName: string;
@@ -8,7 +9,7 @@ interface Props {
 const MainPage = () => {
   return (
     <div className="main-container">
-      <UpcomingList />
+      <UpcomingList className={styles.upcomingList} />
     </div>
   );
 };
