@@ -61,7 +61,7 @@ const UpcomingList = ({ className }: UpcomingListProps) => {
   }, []);
 
   return (
-    <div className={`${styles.container} ${className || ""}`}>
+    <div className={`${styles.upcomingContainer} ${className || ""}`}>
       <h2 className={styles.title}>Upcoming List</h2>
       {upcomingItems.map((item, index) => (
         <div key={index} className={styles.items}>

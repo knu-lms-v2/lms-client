@@ -8,7 +8,7 @@ interface Props {
 
 const MainPage = () => {
   return (
-    <div className="main-container">
+    <div className={styles.mainContainer}>
       <UpcomingList className={styles.upcomingList} />
     </div>
   );
