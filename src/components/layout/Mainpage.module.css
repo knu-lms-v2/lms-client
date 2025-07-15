@@ -1,10 +1,10 @@
 .mainContainer {
   width: 100%;
-  padding-top: 0px;
-  margin: 0;
   box-sizing: border-box;
 }
 
 .upcomingList {
-  width: 33%;
+  width: 30%;
+  height: 50rem;
+  margin: 10px;
 }
