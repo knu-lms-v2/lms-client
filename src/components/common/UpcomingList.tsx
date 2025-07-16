@@ -14,22 +14,50 @@ interface UpcomingItem {
 }
 
 const UpcomingList = ({ className }: UpcomingListProps) => {
-  // const dummyItems = [
-  //   {
-  //     type: "assignment",
-  //     title: "과제",
-  //     week: 3,
-  //     course_name: "웹프로그래밍",
-  //     remaining_days: 3,
-  //   },
-  //   {
-  //     type: "exam",
-  //     title: "시험",
-  //     week: 4,
-  //     course_name: "데이터베이스",
-  //     remaining_days: 8,
-  //   },
-  // ];
+  const dummyItems = [
+    {
+      type: "assignment",
+      title: "과제",
+      week: 3,
+      course_name: "웹프로그래밍",
+      remaining_days: 3,
+    },
+    {
+      type: "exam",
+      title: "시험",
+      week: 4,
+      course_name: "데이터베이스",
+      remaining_days: 8,
+    },
+    {
+      type: "exam",
+      title: "시험",
+      week: 4,
+      course_name: "데이터베이스",
+      remaining_days: 8,
+    },
+    {
+      type: "exam",
+      title: "시험",
+      week: 4,
+      course_name: "데이터베이스",
+      remaining_days: 8,
+    },
+    {
+      type: "exam",
+      title: "시험",
+      week: 4,
+      course_name: "데이터베이스",
+      remaining_days: 8,
+    },
+    {
+      type: "exam",
+      title: "시험",
+      week: 4,
+      course_name: "데이터베이스",
+      remaining_days: 8,
+    },
+  ];
 
   // 1 . UpcomingList가 렌더링될 때 데이터를 가져옴
   // 2. 가져온 json을 map으로 순회하며 각 요소를 렌더링
@@ -62,20 +90,24 @@ const UpcomingList = ({ className }: UpcomingListProps) => {
 
   return (
     <div className={`${styles.upcomingContainer} ${className || ""}`}>
-      <h2 className={styles.title}>Upcoming List</h2>
-      {upcomingItems.map((item, index) => (
-        <div key={index} className={styles.items}>
-          [{item.course_name}] {item.week} {item.type} D-
-          {item.remaining_days}
-        </div>
-      ))}
-      {/* <div className="list">
-        {dummyItems.map((item, index) => (
-          <div key={index} className="item">
-            [{item.course_name}] {item.week}주차 {item.type} D-{item.remaining_days}
+      {/* <h2 className={styles.title}>⏰ 다가오는 일정</h2>
+      <div className={styles.itemsContainer}>
+        {upcomingItems.map((item, index) => (
+          <div key={index} className={styles.items}>
+            [{item.course_name}] {item.week} {item.type} D-
+            {item.remaining_days}
           </div>
         ))}
       </div> */}
+      <h2 className={styles.title}>⏰ 다가오는 일정</h2>
+      <div className={styles.itemsContainer}>
+        {dummyItems.map((item, index) => (
+          <div key={index} className={styles.item}>
+            [{item.course_name}] {item.week}주차 {item.type} D-
+            {item.remaining_days}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
