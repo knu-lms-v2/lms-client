@@ -1,4 +1,6 @@
 import styles from "./Calender.module.css";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 
 type CalenderProps = {
   className?: string;
@@ -7,7 +9,7 @@ type CalenderProps = {
 const Calender = ({ className }: CalenderProps) => {
   return (
     <div className={`${styles.calenderContainer} ${className || ""}`}>
-      Calender
+      <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />
     </div>
   );
 };
