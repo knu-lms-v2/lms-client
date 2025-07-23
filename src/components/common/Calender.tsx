@@ -6,6 +6,12 @@ type CalenderProps = {
   className?: string;
 };
 
+// 백엔드 서버에 한달 간의 일정을 POST로 요청
+// 요청의 응답으로 받은 json 데이터를 type에 따라 분류
+// 분류한 데이터를 FullCalendar에 전달하여 렌더링
+
+
+
 const Calender = ({ className }: CalenderProps) => {
   const events = [
     { title: "event1", date: "2025-07-22" },
