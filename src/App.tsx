@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import LoginPage from "./components/layout/Loginpage";
 import MainPage from "./components/layout/Mainpage";
 import Header from "./components/common/Header";
+import { TaskProvider } from "./contexts/TaskProvider";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -54,10 +55,10 @@ function App() {
           path="/"
           element={
             isLoggedIn ? (
-              <>
+              <TaskProvider>
                 <Header userName={userName} onLogout={handleLogout} />
                 <MainPage />
-              </>
+              </TaskProvider>
             ) : (
               <Navigate to="/login" replace />
             )
