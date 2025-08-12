@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { API_URL } from "../../globals";
 import styles from "./UpcomingList.module.css";
+import { useTasks } from "../../contexts/TaskProvider";
 
 type UpcomingListProps = {
   className?: string;
@@ -14,6 +14,8 @@ interface UpcomingItem {
 }
 
 const UpcomingList = ({ className }: UpcomingListProps) => {
+  const {tasks, loading, error, refreshTasks} = useTasks();
+
   const dummyItems = [
     {
       type: "assignment",
@@ -59,47 +61,27 @@ const UpcomingList = ({ className }: UpcomingListProps) => {
     },
   ];
 
-  // 1 . UpcomingList가 렌더링될 때 데이터를 가져옴
-  // 2. 가져온 json을 map으로 순회하며 각 요소를 렌더링
   const [upcomingItems, setUpcomingItems] = useState<UpcomingItem[]>([]);
   const userName = localStorage.getItem("userName");
 
-  const fetchData = async () => {
-    const response = await fetch(
-      `${API_URL}/api/upcoming-list/upcoming-events/`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user_name: userName }),
-      }
-    );
-    if (response.ok) {
-      const data = await response.json();
-      setUpcomingItems(data.lecture_data);
-      console.log(response.json());
-    } else {
-      console.log("백엔드 에러");
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
     <div className={`${styles.upcomingContainer} ${className || ""}`}>
-      {/* <h2 className={styles.title}>⏰ 다가오는 일정</h2>
-      <div className={styles.itemsContainer}>
-        {upcomingItems.map((item, index) => (
-          <div key={index} className={styles.items}>
-            [{item.course_name}] {item.week} {item.type} D-
-            {item.remaining_days}
-          </div>
-        ))}
-      </div> */}
       <h2 className={styles.title}>⏰ 다가오는 일정</h2>
+      <div className={styles.itemsContainer}>
+        {loading ? (
+          <div className={styles.loadingMessage}>로딩 중...</div>
+        ) : tasks.length > 0 ? (
+          tasks.map((item, index) => (
+            <div key={index} className={styles.item}>
+              [{item.course_name}] {item.week}주차 {item.type} D-
+              {item.remaining_days}
+            </div>
+          ))
+        ) : (
+          <div className={styles.noItemsMessage}>예정된 일정이 없습니다.</div>
+        )}
+      </div>
+      {/* <h2 className={styles.title}>⏰ 다가오는 일정</h2>
       <div className={styles.itemsContainer}>
         {dummyItems.map((item, index) => (
           <div key={index} className={styles.item}>
@@ -107,7 +89,7 @@ const UpcomingList = ({ className }: UpcomingListProps) => {
             {item.remaining_days}
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
